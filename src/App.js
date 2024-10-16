@@ -35,16 +35,18 @@ function App() {
         onChange={handleSearchChange}
       />
       <div className="emoji-container">
-        {filterEmojis.map((emoji) => (
-          <span
-            key={emoji.id}
-            onMouseEnter={() => handleMouseEnter(emoji.name)}
-            onMouseLeave={handleMouseLeave}
-            className="emoji"
-          >
-            {emoji.symbol}
-          </span>
-        ))}
+        {filterEmojis.length > 0
+          ? filterEmojis.map((emoji) => (
+              <span
+                key={emoji.id}
+                onMouseEnter={() => handleMouseEnter(emoji.name)}
+                onMouseLeave={handleMouseLeave}
+                className="emoji"
+              >
+                {emoji.symbol}
+              </span>
+            ))
+          : "no  emojis found"}
       </div>
       {hoverName && <div className="hover-name">{hoverName}</div>}
     </div>
